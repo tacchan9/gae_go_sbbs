@@ -1,0 +1,52 @@
+{{ define "content" }}
+<script>
+/*var options = [
+      {selector: '#abcde', offset: 50, callback: function(el) {
+        Materialize.toast("This is our ScrollFire Demo!", 1500 );
+      } },
+      {selector: '#abcde', offset: 500, callback: function(el) {
+        Materialize.toast("Please continue scrolling!", 1500 );
+      } }  ];*/
+  $(document).ready(function(){
+    Materialize.toast('Created', 3000, 'rounded');
+    commentList();
+    //Materialize.scrollFire(options);
+  });
+</script>
+<ul class="collapsible" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>{{.Name}}</div>
+      <div class="collapsible-body"><span>{{.Propose}}</span></div>
+    </li>
+</ul>
+<div class="row">
+  <form class="col s12">
+  <input type="hidden" name="titleId" value="{{.Id}}">
+
+          <div class="input-field col s12 m8 l10">
+            <textarea id="comment" class="materialize-textarea" data-length="120" name="comment"></textarea>
+            <label for="comment">comment</label>
+          </div>
+          <div class="col s12 m4 l2">
+            <a class="waves-effect btn" href="javascript:sendComment();">submit</a>
+          </div>
+  </from>
+</div>
+<input type="hidden" id="cursorkey">
+<div class="collection">
+<div class="col s12 center" id="circle">
+<div class="preloader-wrapper big active center-align">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--    <a href="#!" class="collection-item"><span class="badge">{{.Update}}</span><div class="chip">Jane Doe</div>fjakljlk;jflka;jfklafjl;ajflajf;ljlf;ja;fjafja;lfjka;fasfa</a> -->
+</div>
+{{ end }}
